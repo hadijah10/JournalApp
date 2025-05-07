@@ -48,7 +48,6 @@ function editJournal(index){
 }
 function deleteJournal(index){
     let journalList = JSON.parse(localStorage.getItem('journal'));
-    console.log(journalList);
     let newJournalList = journalList.filter((data,key)=> {
         key !== parseInt(index)
     })
