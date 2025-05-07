@@ -8,19 +8,22 @@
 </head>
 <body>
     <main>
-        <h1 class="heading">TRACK YOUR PERSONAL GROWTH
+        <h1 class="heading">TRACK YOUR PERSONAL GROWTH 
             THROUGH DAILY JOURNAL</h1>
             <form action="" id="form">
-                <select name="" id="mood">
-                    <option value="Happy">Happy</option>
-                    <option value="Sad">Sad</option>
-                    <option value="Motivated">Motivated</option>
-                    <option value="Stressed">Stressed</option>
-                </select>
-                <textarea id="content" cols="15" rows="15"></textarea>
+                <div class="start">
+                    <select name="" id="mood">
+                        <option value="Happy">Happy</option>
+                        <option value="Sad">Sad</option>
+                        <option value="Motivated">Motivated</option>
+                        <option value="Stressed">Stressed</option>
+                    </select>
+                    <textarea id="content" cols="15" rows="15" placeholder="Journal here" required></textarea>
+                </div>
                 <button>Add</button>
             </form>
-           
+            <button>Filter</button>
+           <div class="journalContent" id="journalContent"></div>
     </main>
     <script src="index.js"></script>
 </body>
