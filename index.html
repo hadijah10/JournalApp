@@ -18,11 +18,15 @@
                         <option value="Motivated">Motivated</option>
                         <option value="Stressed">Stressed</option>
                     </select>
-                    <textarea id="content" cols="15" rows="15" placeholder="Journal here" required></textarea>
+                    <textarea id="journalCcontent" cols="15" rows="15" placeholder="Journal here" required></textarea>
                 </div>
                 <button>Add</button>
             </form>
             <button>Filter</button>
+            <div class="updateform hid">
+                <textarea id="updateContent" cols="15" rows="15" placeholder="" required></textarea>
+                <button type="button" id="save" onclick="updateEdit">Save Edit</button>
+            </div>
            <div class="journalContent" id="journalContent"></div>
     </main>
     <script src="index.js"></script>

@@ -85,6 +85,17 @@ textarea {
 .journalText {
   flex: 1;
 }
+.updateform {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+#updateContent {
+  height: 2.5rem;
+}
+.hid {
+  display: none;
+}
 @media (max-width: 1000px) {
   h1 {
     font-size: 2rem;
@@ -93,6 +104,9 @@ textarea {
 @media (max-width: 800px) {
   main {
     max-width: 90%;
+  }
+  .updateform {
+    gap: 0.5rem;
   }
 }
 @media (max-width: 400px) {

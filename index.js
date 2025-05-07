@@ -2,15 +2,17 @@ const form  = document.getElementById('form')
 const mood = document.getElementById('mood')
 const journal = document.getElementById('content')
 const journalData = document.getElementById('journalContent')
-const edit  = document.getElementById('edit')
+const editbtn  = document.getElementById('edit')
 const deletebtn = document.getElementById('delete')
+const updateDiv = document.getElementById('updateContent')
+const updateContent = document.getElementById('updateContent')
+const saveButton = document.getElementById('save')
 
-form.addEventListener('submit',
-   addjournal)
+form.addEventListener('submit',addjournal)
 
 function addjournal(e){
     e.preventDefault()
-    let text = journal.value.trim()
+    let text = journalData.value
     if(text){
         let localStorageRaw = localStorage.getItem('journal');
         let localStorageData = localStorageRaw ? JSON.parse(localStorageRaw) : [];
@@ -42,16 +44,18 @@ updateUI()
 
 function editJournal(index){
     let journalList = JSON.parse(localStorage.getItem('journal'));
-    let newJournalList = journalList.filter((data,key)=> {
-
-    })
+    journalData.value = journalList[index].journalContent
+    updateDiv.classList.toggle('hid')
 }
+// saveButton.addEventListener('click',updateEdit)
+// function updateEdit(e){
+    
+// }
 function deleteJournal(index){
     let journalList = JSON.parse(localStorage.getItem('journal'));
     let newJournalList = journalList.filter((data,key)=> {
-        key !== parseInt(index)
+        return key !== parseInt(index)
     })
-    console.log(newJournalList)
     localStorage.setItem('journal',JSON.stringify(newJournalList))
     updateUI()
 }
