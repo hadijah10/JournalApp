@@ -9,9 +9,7 @@ form.addEventListener('submit',e => {
 })
 
 function updateUI(){
-     
      console.log(journalContent)
-
     }
 
    updateUI()
