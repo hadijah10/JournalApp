@@ -1,6 +1,6 @@
 const form  = document.getElementById('form')
 import { updateUI } from "./ui.js"
-import { addjournal,editJournal,deleteJournal, updateJournal,searchTitle } from "./journal.js"
+import { addjournal,editJournal,deleteJournal, updateJournal} from "./journal.js"
 const journalContent = document.getElementById('journalContent')
 const filterMood = document.getElementById('filtermood')
 const titleSearch = document.getElementById('titleSearch')
@@ -19,7 +19,7 @@ form.addEventListener('submit',(e) => {
 journalContent.addEventListener('click',(e) => {
     if(e.target.id== 'edit'){
         let index = e.target.classList[1]
-       journalToEdit= editJournal(index)
+       journalToEdit= editJournal(index).meanings
     }
     if(e.target.id== 'delete'){
         let index = e.target.classList[1]
@@ -33,6 +33,5 @@ filterMood.addEventListener('change',(e) => {
 })
 
 titleSearch.addEventListener('input',(e) =>{
- 
     updateUI(filterMood.value,e.target.value)
 })

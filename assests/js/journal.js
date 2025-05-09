@@ -45,8 +45,5 @@ function deleteJournal(index){
     updateLocalStorageData(newJournalList)
 } 
 
-function searchTitle(text){
-    let journalList = getLocalStorageData()
-   return journalList.filter(data => data.title.includes(text))
-}
-export {addjournal,updateJournal,editJournal,deleteJournal,searchTitle}
+
+export {addjournal,updateJournal,editJournal,deleteJournal}

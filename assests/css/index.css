@@ -123,6 +123,13 @@ textarea {
     gap: 0.5rem;
   }
 }
+
+@media (max-width: 800px) {
+.start{
+   flex-direction: column;
+}
+}
+ 
 @media (max-width: 400px) {
   h1 {
     font-size: 1rem;
