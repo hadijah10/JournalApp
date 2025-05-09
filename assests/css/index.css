@@ -14,7 +14,7 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--primary);
   color: #f7f9f9;
-  /* margin:auto; */
+  /* margin:0 auto; */
   display: grid;
   place-items: center;
 }
@@ -22,7 +22,7 @@ body {
 main {
   margin-top: 4rem;
   margin-bottom: 1rem;
-  max-width: 80%;
+  max-width: 62.5rem;
   display: grid;
   gap: 1rem;
 }
@@ -79,38 +79,55 @@ textarea {
   padding: 1rem;
   border-radius: 6px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   gap: 1rem;
+}
+.head{
+  display: flex;
+      gap: 1rem;
+      align-items: center;
 }
 .journalText {
   flex: 1;
 }
-.updateform {
+#title{
+  border:none;
+  padding: 0.5rem;
+  border-radius: 5px;
+  flex:1;
+}
+.btngroup{
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap:1rem;
 }
-#updateContent {
-  height: 2.5rem;
+#titleSearch{
+  padding: 0.4rem;
+  border-radius: 5px;
+  outline: none;
+  border: none;
 }
-.hid {
-  display: none;
-}
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
+  main {
+    max-width: 80%;
+  }
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 }
 @media (max-width: 800px) {
-  main {
-    max-width: 90%;
+  h1 {
+    font-size: 1.5rem;
   }
+
   .updateform {
     gap: 0.5rem;
   }
 }
 @media (max-width: 400px) {
+  h1 {
+    font-size: 1rem;
+  }
   main {
-    max-width: 95%;
+    max-width: 92%;
   }
 }
