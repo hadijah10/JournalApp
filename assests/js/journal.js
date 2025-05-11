@@ -17,7 +17,7 @@ function addjournal(){
     
     }
 }
-//function to add new journal entries
+//function to update edited journal entries
 function updateJournal(journalToEdit){
     let text = journal.value.trim()
     let localStorageData = getLocalStorageData()
@@ -27,7 +27,7 @@ function updateJournal(journalToEdit){
      )
      updateLocalStorageData(editLocalStorageData)
 }
-
+//function to retrieve journal to edit
 function editJournal(index){
     let localStorageData = getLocalStorageData()
     let journalToEdit = localStorageData.filter(data => data.id==index)[0]
@@ -37,6 +37,7 @@ function editJournal(index){
     return journalToEdit
 }
 
+//function to delete a journal.
 function deleteJournal(index){
     let journalList = getLocalStorageData()
     let newJournalList = journalList.filter((data,key)=> {

@@ -19,7 +19,7 @@ form.addEventListener('submit',(e) => {
 journalContent.addEventListener('click',(e) => {
     if(e.target.id== 'edit'){
         let index = e.target.classList[1]
-       journalToEdit= editJournal(index).meanings
+       journalToEdit= editJournal(index)
     }
     if(e.target.id== 'delete'){
         let index = e.target.classList[1]
@@ -33,5 +33,6 @@ filterMood.addEventListener('change',(e) => {
 })
 
 titleSearch.addEventListener('input',(e) =>{
+ 
     updateUI(filterMood.value,e.target.value)
 })
