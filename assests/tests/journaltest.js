@@ -28,8 +28,8 @@ const localStorageKey = 'journal'
 }
 
 //function to display the 
- function updateUI(filtermood='',searchterm='',getLocalStorageData,journalDataContent){
-    let localStorageData = filtermood=='' ? getLocalStorageData() :getLocalStorageData().filter(data => data.mood==filtermood)
+ function updateUI(filtermood='',searchterm='',getNewLocalStorageData,journalDataContent){
+    let localStorageData = filtermood=='' ? getNewLocalStorageData() :getNewLocalStorageData().filter(data => data.mood==filtermood)
     if(searchterm.length >0){
         localStorageData = localStorageData.filter(data => data.title.toLowerCase().includes(searchterm.toLowerCase()))
     }

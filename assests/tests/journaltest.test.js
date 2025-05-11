@@ -70,16 +70,61 @@ describe('ui test',() => {
     })
     test('when there is no search or filter applied with no item in local storage',()=> {
         const journalDataContent = document.querySelector('.journalDataContent')
+        
         updateUI(filtermood='',searchterm='',getLocalStorageData,journalDataContent)
         expect(journalDataContent.innerHTML).toBe('')
     });
-    test('when there is no search or filter applied with an items in localstorage',()=> {
+
+    test('when there is no search or filter applied with an item in localstorage',()=> {
         const journalDataContent = document.querySelector('.journalDataContent')
-        const title = document.getElementById('title')
         const mockData = [{"id": 1746962938156, "journalContent": " This is my journal entry. ", "mood": "Happy", "timestamp": "2025-05-11T11:28:58.156Z", "title": "My Title"}];
         localStorage.setItem(localStorageKey, JSON.stringify(mockData));
         updateUI(filtermood='',searchterm='',getLocalStorageData,journalDataContent)
-        expect(title.textContent).toContains('My Title')
+        expect(journalDataContent.innerHTML).toContain('My Title')
+    });
+
+    test('when there is a search applied with items in localstorage',()=> {
+        const journalDataContent = document.querySelector('.journalDataContent')
+        const mockData = [{"id": 1, "journalContent": " This is my journal entry. ", "mood": "Happy", "timestamp": "2025-05-11T11:28:58.156Z", "title": "My Title"},
+            {"id": 4, "journalContent": " This is my journal entry.V2 ", "mood": "Motivated", "timestamp": "2025-05-11T11:28:58.156Z", "title": "Do it"}
+        ];
+        localStorage.setItem(localStorageKey, JSON.stringify(mockData));
+        updateUI(filtermood='',searchterm='do',getLocalStorageData,journalDataContent)
+        expect(journalDataContent.innerHTML).toContain('Do it'),
+        expect(journalDataContent.innerHTML).not.toContain('My Title')
+    });
+
+    test('when there is filter applied with items in localstorage',()=> {
+        const journalDataContent = document.querySelector('.journalDataContent')
+        const mockData = [{"id": 1, "journalContent": " This is my journal entry. ", "mood": "Happy", "timestamp": "2025-05-11T11:28:58.156Z", "title": "My Title"},
+            {"id": 4, "journalContent": " This is my journal entry.V2 ", "mood": "Motivated", "timestamp": "2025-05-11T11:28:58.156Z", "title": "Do it"}
+        ];
+        localStorage.setItem(localStorageKey, JSON.stringify(mockData));
+        updateUI(filtermood='Happy',searchterm='',getLocalStorageData,journalDataContent)
+        expect(journalDataContent.innerHTML).not.toContain('Do it'),
+        expect(journalDataContent.innerHTML).toContain('My Title')
+    });
+
+    test('when there is both a filter and search applied with the search item not in the title and items in localstorage',()=> {
+        const journalDataContent = document.querySelector('.journalDataContent')
+        const mockData = [{"id": 1, "journalContent": " This is my journal entry. ", "mood": "Happy", "timestamp": "2025-05-11T11:28:58.156Z", "title": "My Title"},
+            {"id": 4, "journalContent": " This is my journal entry.V2 ", "mood": "Motivated", "timestamp": "2025-05-11T11:28:58.156Z", "title": "Do it"}
+        ];
+        localStorage.setItem(localStorageKey, JSON.stringify(mockData));
+        updateUI(filtermood='Happy',searchterm='do',getLocalStorageData,journalDataContent)
+        expect(journalDataContent.innerHTML).not.toContain('Do it'),
+        expect(journalDataContent.innerHTML).toContain('')
+    });
+
+     test('when there is both a filter and search applied with the search item in the title and items in localstorage',()=> {
+        const journalDataContent = document.querySelector('.journalDataContent')
+        const mockData = [{"id": 1, "journalContent": " This is my journal entry. ", "mood": "Happy", "timestamp": "2025-05-11T11:28:58.156Z", "title": "My Title"},
+            {"id": 4, "journalContent": " This is my journal entry.V2 ", "mood": "Motivated", "timestamp": "2025-05-11T11:28:58.156Z", "title": "Do it"}
+        ];
+        localStorage.setItem(localStorageKey, JSON.stringify(mockData));
+        updateUI(filtermood='Happy',searchterm='title',getLocalStorageData,journalDataContent)
+        expect(journalDataContent.innerHTML).not.toContain('Do it'),
+        expect(journalDataContent.innerHTML).toContain('My Title')
     });
 })
 
